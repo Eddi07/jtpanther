@@ -6,6 +6,8 @@ class BookingFormScreen extends StatefulWidget {
 
   final String barberid;
   final String serviceid;
+  final String barberName;
+  final String serviceName;
   final DateTime date;
   final String time;
 
@@ -13,6 +15,8 @@ class BookingFormScreen extends StatefulWidget {
     super.key,
     required this.barberid,
     required this.serviceid,
+    required this.barberName,
+    required this.serviceName,
     required this.date,
     required this.time,
   });
@@ -47,6 +51,8 @@ Future<void> saveAppointment() async {
       "name": nameController.text,
       "date": formattedDate,
       "time": widget.time,
+      "serviceName": widget.serviceName,
+      "barberName": widget.barberName,
     });
 
   } catch (e) {

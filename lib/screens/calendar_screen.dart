@@ -6,11 +6,15 @@ class CalendarScreen extends StatefulWidget {
 
   final String barberid;
   final String serviceid;
+  final String barberName;
+  final String serviceName;
 
   const CalendarScreen({
     super.key,
     required this.barberid,
     required this.serviceid,
+    required this.barberName,
+    required this.serviceName,
   });
 
   @override
@@ -135,6 +139,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                               extra: {
                                 "barberid": widget.barberid,
                                 "serviceid": widget.serviceid,
+                                "barberName": widget.barberName,
+                                "serviceName": widget.serviceName,
                                 "date": selectedDate,
                                 "time": slot,},);
                         },

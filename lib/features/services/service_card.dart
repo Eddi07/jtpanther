@@ -18,8 +18,11 @@ class ServiceCard extends StatelessWidget {
       child: ListTile(
 
         onTap: () {
-          context.go('/barbers', extra: service.id);
-        },
+          context.go('/barbers', extra: {
+            "serviceid": service.id,
+            "serviceName": service.name,
+            });
+          },
 
         leading: const Icon(
           Icons.content_cut,

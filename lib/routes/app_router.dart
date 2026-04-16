@@ -31,10 +31,11 @@ class AppRouter {
           final data = state.extra as Map;
 
           return CalendarScreen(
-            barberid: data["barberid"],
             serviceid: data["serviceid"],
-            barberName: data["barberName"],
             serviceName: data["serviceName"],
+            barberid: data["barberid"],
+            barberName: data["barberName"],
+            
           );
         },
       ),

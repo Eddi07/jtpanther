@@ -25,7 +25,10 @@ class _BarbersScreenState extends State<BarbersScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final serviceId = GoRouterState.of(context).extra as String;
+    final data = GoRouterState.of(context).extra as Map;
+    
+    final serviceId = data["serviceid"];
+    final serviceName = data["serviceName"];
     
 
     return Scaffold(
@@ -59,7 +62,8 @@ class _BarbersScreenState extends State<BarbersScreen> {
 
               return BarberCard(
                 barber: barber,
-                serviceName: serviceId,
+                serviceId: serviceId,
+                serviceName: serviceName,
               );
 
             },

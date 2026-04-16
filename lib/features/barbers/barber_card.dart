@@ -3,12 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'barber_model.dart';
 
 class BarberCard extends StatelessWidget {
+  final String serviceId;
   final Barber barber;
   final String serviceName;
 
   const BarberCard({
     super.key,
     required this.barber,
+    required this.serviceId,
     required this.serviceName,
   });
 
@@ -27,8 +29,8 @@ class BarberCard extends StatelessWidget {
             '/calendar',
             extra: {
               "barberid": barber.id,
-              "serviceid": serviceName,
               "barberName": barber.nombre,
+              "serviceid": serviceId,
               "serviceName": serviceName,
               },
           );

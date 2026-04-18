@@ -8,6 +8,8 @@ import '../features/services/services_screen.dart';
 import '../features/barbers/barbers_screen.dart';
 import '../screens/calendar_screen.dart';
 import '../screens/confirmation_screen.dart';
+import '../features/home/home_screen.dart';
+import '../features/admin/admin_dashboard_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
@@ -15,6 +17,13 @@ class AppRouter {
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
 
+      GoRoute(path: '/home', builder: (context, state) => const HomeScreen()),
+
+      GoRoute(
+        path: '/admin',
+        builder: (context, state) => const AdminDashboardScreen(),
+      ),
+      
       GoRoute(
         path: '/services',
         builder: (context, state) => const ServicesScreen(),
@@ -35,7 +44,6 @@ class AppRouter {
             serviceName: data["serviceName"],
             barberid: data["barberid"],
             barberName: data["barberName"],
-            
           );
         },
       ),
@@ -54,8 +62,8 @@ class AppRouter {
           return BookingFormScreen(
             barberid: data["barberid"] as String,
             serviceid: data["serviceid"] as String,
-            barberName: data["barberName"]as String,
-            serviceName: data["serviceName"]as String,
+            barberName: data["barberName"] as String,
+            serviceName: data["serviceName"] as String,
             date: data["date"] as DateTime,
             time: data["time"] as String,
           );

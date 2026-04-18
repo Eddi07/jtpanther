@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/utils/admin_notifications.dart';
+import '../admin/admin_appointments_screen.dart';
 
 class AdminDashboardScreen extends StatefulWidget {
   const AdminDashboardScreen({super.key});
@@ -9,33 +10,33 @@ class AdminDashboardScreen extends StatefulWidget {
 }
 
 class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
-
   @override
   void initState() {
     super.initState();
 
-    listenNewAppointments((data){
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Nueva cita registrada"),
-        ),
-      );
-
+    listenNewAppointments((data) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Nueva cita registrada")));
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Panel Admin"),
-      ),
-
-      body: const Center(
-        child: Text("Dashboard de citas"),
+      appBar: AppBar(title: const Text("Panel Admin")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const AdminAppointmentsScreen(),
+              ),
+            );
+          },
+          child: const Text("Ver citas"),
+        ),
       ),
     );
   }

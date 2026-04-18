@@ -39,9 +39,9 @@ Future<void> saveAppointment() async {
       "barbero_id": widget.barberid,
       "servicio_id": widget.serviceid,
       "fecha": formattedDate,
-      "hora": widget.time,
+      "hora": "${widget.time}:00",
       "cliente_nombre": nameController.text,
-      "cliente_telefono": phoneController.text,
+      "cliente_telefono": phoneController.text.replaceAll(RegExp(r'[^0-9]'), ''),
       "estado": "pendiente"
     });
 

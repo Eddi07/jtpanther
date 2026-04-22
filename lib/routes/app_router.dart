@@ -8,8 +8,11 @@ import '../features/services/services_screen.dart';
 import '../features/barbers/barbers_screen.dart';
 import '../screens/calendar_screen.dart';
 import '../screens/confirmation_screen.dart';
-import '../features/home/home_screen.dart';
 import '../features/admin/admin_dashboard_screen.dart';
+import '../features/admin/admin_appointments_screen.dart';
+import '../features/home/home_screen.dart';
+
+
 
 class AppRouter {
   static final router = GoRouter(
@@ -23,7 +26,12 @@ class AppRouter {
         path: '/admin',
         builder: (context, state) => const AdminDashboardScreen(),
       ),
-      
+
+      GoRoute(
+        path: '/admin-citas',
+        builder: (context, state) => const AdminAppointmentsScreen(),
+      ),
+
       GoRoute(
         path: '/services',
         builder: (context, state) => const ServicesScreen(),
